@@ -16,7 +16,7 @@
 ### 专栏
 > 心有所想，必有回响！
 
-[掘金首页](https://juejin.im/user/5d6be0caf265da03e83b852b/posts "掘金首页")
+[掘金首页](https://juejin.im/user/5d6be0caf265da03e83b852b/posts "心有所想，必有回响！")
 
 ### JS 基础
 > 夯实基础，未来可期！
