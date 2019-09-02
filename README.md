@@ -7,7 +7,7 @@
 - React 
 - Webpack
 - node
-- [代码之外，工作之内](https://github.com/jingzhaoxia/frontEndNote/blob/master/README.md#代码之外，工作之内 "代码之外，工作之内")
+- [代码之外，工作之内](https://github.com/jingzhaoxia/frontEndNote/blob/master/README.md#代码之外工作之内 "代码之外，工作之内")
 
 如果您喜欢我的文字，如果有帮助到您，欢迎 **Watch** **Star ☆**，让我知道，给我力量~
 
