@@ -1,13 +1,13 @@
 # frontEndNote
 每周**1**篇文章，记录我的前端之旅，夯实基础，未来可期！
 
-- [JS 基础](https://github.com/jingzhaoxia/frontEndNote/blob/master/README.md#js-基础 "JS 基础")
-- [ES6 系列](https://github.com/jingzhaoxia/frontEndNote/blob/master/README.md#es-系列 "ES6 系列")
+- [JS 基础](https://github.com/jingzhaoxia/frontEndNote/blob/master/README.md#js-基础 "夯实基础，未来可期！")
+- [ES6 系列](https://github.com/jingzhaoxia/frontEndNote/blob/master/README.md#es-系列 "静下心来，仔细阅读")
 - Vue
 - React 
 - Webpack
 - node
-- [代码之外，工作之内](https://github.com/jingzhaoxia/frontEndNote/blob/master/README.md#代码之外工作之内 "代码之外，工作之内")
+- [代码之外，工作之内](https://github.com/jingzhaoxia/frontEndNote/blob/master/README.md#代码之外工作之内 "分享职场经验")
 
 如果您喜欢我的文字，如果有帮助到您，欢迎 **Watch** **Star ☆**，让我知道，给我力量~
 
