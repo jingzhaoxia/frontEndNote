@@ -1,5 +1,5 @@
 # frontEndNote
-**每2周1篇文章**，记录我的前端之旅，夯实基础，未来可期！
+**1篇/月 文章**，记录我的前端之旅，夯实基础，未来可期！
 
 - [JS 基础](https://github.com/jingzhaoxia/frontEndNote/blob/master/README.md#js-基础 "夯实基础，未来可期！")
 - [ES6 系列](https://github.com/jingzhaoxia/frontEndNote/blob/master/README.md#es-系列 "静下心来，仔细阅读")
