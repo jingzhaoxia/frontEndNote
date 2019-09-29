@@ -162,7 +162,7 @@ read('./name.txt')
 
 - 每个实例上都有一个 then 方法，异步的。对于成功态和失败态的回调：onFulfilled onRejected
 
-![代码1,传送门~](https://github.com/jingzhaoxia/frontEndCode/blob/master/zhaoxiajingjing/20190928/promise-1.js)
+[代码1,传送门~](https://github.com/jingzhaoxia/frontEndCode/blob/master/zhaoxiajingjing/20190928/promise-1.js)
 
 ```javascript
 const PENDING = 'pending';
@@ -209,7 +209,7 @@ class Promise{
 
 ## Pomise 解决异步问题
 Promise 是个容器，里面可以放一些异步的请求，请求成功了走成功态，请求失败了走失败态。当然，你要反过来走也可以哒~
-
+[代码2,传送门~](https://github.com/jingzhaoxia/frontEndCode/blob/master/zhaoxiajingjing/20190928/promise-2.js)
 ```javascript
 const PENDING = 'pending';
 const SUCCESS = 'fulfilled';
@@ -272,7 +272,7 @@ Promise 里面有异步请求时候，会先走到 then方法里面了。此时�
 ## Promise 的链式
 ### then 方法 返回一个新的 Promise
 Promise 一生只能改变一次状态。那么，Promise 的链式调用then方法，说明每次都会返回一个**新的Promise**。
-
+[代码3,传送门~](https://github.com/jingzhaoxia/frontEndCode/blob/master/zhaoxiajingjing/20190928/promise-3.js)
 ```javascript
 const SUCCESS = 'fulfilled';
 const FAIL = 'rejected';
@@ -332,7 +332,7 @@ class Promise {
 
 ### 解析 x
 如何判断 x 是Promsie，还是一个普通值？【参考规范 https://promisesaplus.com "Promsie A+"  2.2.7】
-
+[代码4,传送门~](https://github.com/jingzhaoxia/frontEndCode/blob/master/zhaoxiajingjing/20190928/promise-4.js)
 ```javascript
 const SUCCESS = 'fulfilled';
 const FAIL = 'rejected';
@@ -397,7 +397,7 @@ class Promise {
 
 ### 严谨度
 **Promsie 给你的承诺，一句情话：一个 Promise 一生只改变一次状态**
-
+[代码5,传送门~](https://github.com/jingzhaoxia/frontEndCode/blob/master/zhaoxiajingjing/20190928/promise-5.js)
 ```javascript
 const SUCCESS = 'fulfilled';
 const FAIL = 'rejected';
@@ -502,7 +502,7 @@ class Promise {
 - `promises-aplus-tests` 用来测试当前的库是否符合规范
 - `npm i promises-aplus-tests -g`
 - `promises-aplus-tests 文件名`
-
+[可测试的代码，传送门](https://github.com/jingzhaoxia/frontEndCode/blob/master/zhaoxiajingjing/20190928/promise.js)
 
 ## Promise A+ 规范
 Promsie 是一个构造函数，是个类。默认高版本浏览器，node都自带了。不用考虑兼容性，放心大胆的使用吧！如果真不兼容，那就用es6-promsie包自己是一套吧~
@@ -564,5 +564,6 @@ class Promise {
 module.exports = Promise;
 ```
 
-
+# 交流
+![朝霞的世界](https://github.com/jingzhaoxia/frontEndCode/blob/master/zhaoxiajingjing/公众号.jpg)
 
