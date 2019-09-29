@@ -1,88 +1,89 @@
-# PromiseµÄºÃ´¦
-Promsie ¿ÉÒÔ½â¾öµÄÎÊÌâ
-1. °ÑÄã´Ó»Øµ÷µØÓüÖĞ½â¾È³öÀ´
-1. ÈÃÄãÓÅÑÅµÄ²¶»ñ´íÎó
-1. ÎªÄã·Öµ£Òì²½²¢·¢µÄÄÑÌâ
+# Promiseçš„å¥½å¤„
+Promsie å¯ä»¥è§£å†³çš„é—®é¢˜
+1. æŠŠä½ ä»å›è°ƒåœ°ç‹±ä¸­è§£æ•‘å‡ºæ¥
+1. è®©ä½ ä¼˜é›…çš„æ•è·é”™è¯¯
+1. ä¸ºä½ åˆ†æ‹…å¼‚æ­¥å¹¶å‘çš„éš¾é¢˜
 
 ```javascript
-// ´Ë´¦Ê¹ÓÃnode¾ÙÀı£¬²»»á²»Òª½ô£¬ÏÈ»ì¸öÁ³Êì¡£ÔÙ¼û¾Í²»Ä°ÉúÁËÑ½
+// æ­¤å¤„ä½¿ç”¨nodeä¸¾ä¾‹ï¼Œä¸ä¼šä¸è¦ç´§ï¼Œå…ˆæ··ä¸ªè„¸ç†Ÿã€‚å†è§å°±ä¸é™Œç”Ÿäº†å‘€
 let fs = require('fs');
-// Òì²½¶ÁÈ¡ÎÄ¼ş
+// å¼‚æ­¥è¯»å–æ–‡ä»¶
 fs.readFile('./name', function (err, data){
     if(err){}
     fs.readFile(data, function (err, address){
         if(err){}
         fs.readFile(address, function (err, product){
-            // 1£©ÉîÏİÔÚ»Øµ÷µØÓòÖĞ²»ÄÜ³éÉí
+            // 1ï¼‰æ·±é™·åœ¨å›è°ƒåœ°åŸŸä¸­ä¸èƒ½æŠ½èº«
             if(err){
-                // 2£©²¶»ñ´íÎó¡£OMG£¬ÎÒÄÄÀï´íÁË£¿£¡£¿£¡¸æËßÎÒ£¬¿Ï¶¨¸Ä~
+                // 2ï¼‰æ•è·é”™è¯¯ã€‚OMGï¼Œæˆ‘å“ªé‡Œé”™äº†ï¼Ÿï¼ï¼Ÿï¼å‘Šè¯‰æˆ‘ï¼Œè‚¯å®šæ”¹~
             }
         });
     });
 });
 
-// 3£© ÄãµÄÃû×Ö¡¢ÄãµÄµØÖ·¡£¶¼¸æËßÎÒ£¬¾ªÏ²²Å»áËÍµ½ÄãÃæÇ°Ñ½~
+// 3ï¼‰ ä½ çš„åå­—ã€ä½ çš„åœ°å€ã€‚éƒ½å‘Šè¯‰æˆ‘ï¼ŒæƒŠå–œæ‰ä¼šé€åˆ°ä½ é¢å‰å‘€~
 fs.readFile('./name', function (err, data){});
 fs.readFile('./address', function (err, data){});
 ```
 
-# Promise Ê¹ÓÃµÄÀı×Ó
-## ×´Ì¬±ä»¯
-- Promise ÓĞ3ÖÖ×´Ì¬
->- pending µÈ´ıÌ¬
->- fulfilled ³É¹¦Ì¬
->- rejected Ê§°ÜÌ¬
+# Promise ä½¿ç”¨çš„ä¾‹å­
+## çŠ¶æ€å˜åŒ–
+- Promise æœ‰3ç§çŠ¶æ€
+>- pending ç­‰å¾…æ€
+>- fulfilled æˆåŠŸæ€
+>- rejected å¤±è´¥æ€
 
-¡¾µÈ´ıÌ¬ -> ³É¹¦Ì¬¡¿ or ¡¾µÈ´ıÌ¬ -> Ê§°ÜÌ¬¡¿¶şÑ¡Ò»£¬ÄãÀ´¶¨¡£
+ã€ç­‰å¾…æ€ -> æˆåŠŸæ€ã€‘ or ã€ç­‰å¾…æ€ -> å¤±è´¥æ€ã€‘äºŒé€‰ä¸€ï¼Œä½ æ¥å®šã€‚
 
+![](https://github.com/jingzhaoxia/frontEndCode/blob/master/zhaoxiajingjing/20190928/tu/tu.png)
 
-- Promsie ÊÇ¸öÀà£¬½ÓÊÕÒ»¸öº¯Êı²ÎÊı executor Ö´ĞĞÆ÷£¬Ò»ÉÏÀ´¾ÍÖ´ĞĞÁË¡£ÕâÀïÊÇÍ¬²½µÄ¡£
-- Ã¿Ò»¸öPromsieµÄÊµÀıÉÏ¶¼ÓĞÒ»¸öthen·½·¨¡£ÊÇ»ùÓÚ»Øµ÷ÊµÏÖµÄ¡£
+- Promsie æ˜¯ä¸ªç±»ï¼Œæ¥æ”¶ä¸€ä¸ªå‡½æ•°å‚æ•° executor æ‰§è¡Œå™¨ï¼Œä¸€ä¸Šæ¥å°±æ‰§è¡Œäº†ã€‚è¿™é‡Œæ˜¯åŒæ­¥çš„ã€‚
+- æ¯ä¸€ä¸ªPromsieçš„å®ä¾‹ä¸Šéƒ½æœ‰ä¸€ä¸ªthenæ–¹æ³•ã€‚æ˜¯åŸºäºå›è°ƒå®ç°çš„ã€‚
 
 ```javascript
-console.log('Ò»·âÇéÊé');
+console.log('ä¸€å°æƒ…ä¹¦');
 
 let p = new Promise((resolve, reject)=>{
-    console.log('executorÇëËµ³öÄãµÄÑ¡Ôñ£º');
-    resolve('ÄãÖĞÒâÎÒ~(*^¨Œ^*)');
-    reject('Äã·¢ÁËºÃÈË¿¨(¨i©n¨i)o');
+    console.log('executorè¯·è¯´å‡ºä½ çš„é€‰æ‹©ï¼š');
+    resolve('ä½ ä¸­æ„æˆ‘~(*^â–½^*)');
+    reject('ä½ å‘äº†å¥½äººå¡(â•¥ï¹â•¥)o');
 });
 
 p.then((value)=>{
-    console.log('³É¹¦Ì¬', value);
+    console.log('æˆåŠŸæ€', value);
 }, (reason) => {
-    console.log('Ê§°ÜÌ¬', reason);
+    console.log('å¤±è´¥æ€', reason);
 });
 
-console.log('Ö½¶ÌÇé³¤');
+console.log('çº¸çŸ­æƒ…é•¿');
 ```
 
 
-## Á´Ê½µ÷ÓÃ
+## é“¾å¼è°ƒç”¨
 
 ```javascript
-console.log('-----Ò»·âÇéÊé-----');
+console.log('-----ä¸€å°æƒ…ä¹¦-----');
 
 let p = new Promise((resolve, reject) => {
-    console.log('executor ÇëËµ³öÄãµÄÑ¡Ôñ£º');
-    resolve('ÄãÖĞÒâÎÒ~(*^¨Œ^*)');
-    reject('Äã·¢ÁËºÃÈË¿¨(¨i©n¨i)o');
+    console.log('executor è¯·è¯´å‡ºä½ çš„é€‰æ‹©ï¼š');
+    resolve('ä½ ä¸­æ„æˆ‘~(*^â–½^*)');
+    reject('ä½ å‘äº†å¥½äººå¡(â•¥ï¹â•¥)o');
 });
 
 p.then((value) => {
-    console.log('³É¹¦Ì¬---', value);
+    console.log('æˆåŠŸæ€---', value);
 }, (reason) => {
-    console.log('Ê§°ÜÌ¬---', reason);
+    console.log('å¤±è´¥æ€---', reason);
 }).then((value) => {
-    console.log('---°®ÄãÒ»ÍòÄê~(*^¨Œ^*)');
+    console.log('---çˆ±ä½ ä¸€ä¸‡å¹´~(*^â–½^*)');
 }, (reason) => { 
-    console.log('---ÉËĞÄ×ÜÊÇÄÑÃâµÄo(¨i©n¨i)o');
+    console.log('---ä¼¤å¿ƒæ€»æ˜¯éš¾å…çš„o(â•¥ï¹â•¥)o');
 });
-console.log('~~~Ö½¶ÌÇé³¤~~~');
+console.log('~~~çº¸çŸ­æƒ…é•¿~~~');
 ```
 
 
-### Òì²½ÇëÇó
+### å¼‚æ­¥è¯·æ±‚
 - name.txt
 ```javascript
 zhaoxiajingjing
@@ -100,15 +101,15 @@ let p = new Promise((resolve, reject)=>{
     });
 });
 p.then((value)=>{
-    console.log('³É¹¦ÁË', value);
+    console.log('æˆåŠŸäº†', value);
 }, (reason)=>{
-    console.log('Ê§°ÜÁË', reason);
+    console.log('å¤±è´¥äº†', reason);
 });
 ```
 
-## ¸´ÔÓµÄÊ¹ÓÃ Promise
+## å¤æ‚çš„ä½¿ç”¨ Promise
 
-ÏÂÃæµÄÀı×ÓÊä³öÊ²Ã´ÄØ£¿
+ä¸‹é¢çš„ä¾‹å­è¾“å‡ºä»€ä¹ˆå‘¢ï¼Ÿ
 
 ```javascript
 let fs = require('fs');
@@ -127,38 +128,38 @@ function read(filePath) {
 read('./name.txt')
 // then-1
 .then(function (data) {
-    console.log('data¢Ù', data);
+    console.log('dataâ‘ ', data);
     return new Promise((resolve, reject) => {
-        reject('´íÎóÁË');
+        reject('é”™è¯¯äº†');
     });
 })
 // then-2
 .then((data) => {
-    console.log('data¢Ú', data);
+    console.log('dataâ‘¡', data);
 }, err => {
-    console.log('err¢Ú', err);
+    console.log('errâ‘¡', err);
 })
 // then-3
 .then((data) => {
-    console.log('data¢Û', data);
+    console.log('dataâ‘¢', data);
 }, (err) => {
-    console.log('err¢Û', err);
+    console.log('errâ‘¢', err);
 });
 ```
 
 
-** OK£¬ÌáÁ¶Ò»ÏÂÖØµã£º **
-1. ÓĞÈı¸ö×´Ì¬¡£ÔõÃ´±ä»¯µÄ£¿
-1. executor¡£ÔõÃ´Ö´ĞĞµÄ£¿
-1. then·½·¨£¬³É¹¦Ì¬ºÍÊ§°ÜÌ¬µÄ»Øµ÷¡£
-1. then·½·¨µÄÁ´Ê½µ÷ÓÃ¡£
-1. Promise ´¦ÀíÒì²½¡£
+** OKï¼Œæç‚¼ä¸€ä¸‹é‡ç‚¹ï¼š **
+1. æœ‰ä¸‰ä¸ªçŠ¶æ€ã€‚æ€ä¹ˆå˜åŒ–çš„ï¼Ÿ
+1. executorã€‚æ€ä¹ˆæ‰§è¡Œçš„ï¼Ÿ
+1. thenæ–¹æ³•ï¼ŒæˆåŠŸæ€å’Œå¤±è´¥æ€çš„å›è°ƒã€‚
+1. thenæ–¹æ³•çš„é“¾å¼è°ƒç”¨ã€‚
+1. Promise å¤„ç†å¼‚æ­¥ã€‚
 
-# ÊµÏÖÒÔÉÏÄÚÈİ
-## Promise »ù±¾ÊµÏÖ
-- new Promise »á´«Ò»¸öº¯Êı×÷Îª²ÎÊı¡£Õâ¸öº¯ÊıÓĞÁ½¸ö²ÎÊı£ºresolve ³É¹¦ reject Ê§°Ü£¬¶¼ÊÇÓÃÓÚ¸Ä±ä×´Ì¬µÄ¡£¶¼ÔÚÊµÀıÉÏ£¬**Ò»¸ö Promise Ò»ÉúÖ»¸Ä±äÒ»´Î×´Ì¬**
+# å®ç°ä»¥ä¸Šå†…å®¹
+## Promise åŸºæœ¬å®ç°
+- new Promise ä¼šä¼ ä¸€ä¸ªå‡½æ•°ä½œä¸ºå‚æ•°ã€‚è¿™ä¸ªå‡½æ•°æœ‰ä¸¤ä¸ªå‚æ•°ï¼šresolve æˆåŠŸ reject å¤±è´¥ï¼Œéƒ½æ˜¯ç”¨äºæ”¹å˜çŠ¶æ€çš„ã€‚éƒ½åœ¨å®ä¾‹ä¸Šï¼Œ**ä¸€ä¸ª Promise ä¸€ç”Ÿåªæ”¹å˜ä¸€æ¬¡çŠ¶æ€**
 
-- Ã¿¸öÊµÀıÉÏ¶¼ÓĞÒ»¸ö then ·½·¨£¬Òì²½µÄ¡£¶ÔÓÚ³É¹¦Ì¬ºÍÊ§°ÜÌ¬µÄ»Øµ÷£ºonFulfilled onRejected
+- æ¯ä¸ªå®ä¾‹ä¸Šéƒ½æœ‰ä¸€ä¸ª then æ–¹æ³•ï¼Œå¼‚æ­¥çš„ã€‚å¯¹äºæˆåŠŸæ€å’Œå¤±è´¥æ€çš„å›è°ƒï¼šonFulfilled onRejected
 
 ```javascript
 const PENDING = 'pending';
@@ -167,25 +168,25 @@ const FAIL = 'rejected';
 
 class Promise{
     constructor(execuotr){
-        const status = PENDING; // ÎÒµÈ×ÅÄã¸ø´ğ°¸~
+        const status = PENDING; // æˆ‘ç­‰ç€ä½ ç»™ç­”æ¡ˆ~
         this.value;
         this.reason;
 
         let resolve = (value)=>{
             if(status === PENDING) {
-                this.status = SUCCESS; // ÄãÖĞÒâÎÒ~
+                this.status = SUCCESS; // ä½ ä¸­æ„æˆ‘~
                 this.value = value;
             }
         };
 
         let reject = (reason)=>{
             if(status === PENDING) {
-                this.status = FAIL; // Äã·¢ÁËºÃÈË¿¨
+                this.status = FAIL; // ä½ å‘äº†å¥½äººå¡
                 this.reason = reason;
             }
         };
 
-        // ÊÇÍ¬²½µÄÅ¶~
+        // æ˜¯åŒæ­¥çš„å“¦~
         try {
             executor(resolve, reject);
         } catch (e) {
@@ -194,17 +195,17 @@ class Promise{
     }
     then(onFulfilled, onRejected){
         if(this.status === SUCCESS) {
-            onFulfilled(this.value);  // °®ÄãÒ»ÍòÄê~
+            onFulfilled(this.value);  // çˆ±ä½ ä¸€ä¸‡å¹´~
         }
         if(this.status === FAIL) {
-            onRejected(this.reason); // ÉËĞÄ×ÜÊÇÄÑÃâµÄ
+            onRejected(this.reason); // ä¼¤å¿ƒæ€»æ˜¯éš¾å…çš„
         }
     }
 }
 ```
 
-## Pomise ½â¾öÒì²½ÎÊÌâ
-Promise ÊÇ¸öÈİÆ÷£¬ÀïÃæ¿ÉÒÔ·ÅÒ»Ğ©Òì²½µÄÇëÇó£¬ÇëÇó³É¹¦ÁË×ß³É¹¦Ì¬£¬ÇëÇóÊ§°ÜÁË×ßÊ§°ÜÌ¬¡£µ±È»£¬ÄãÒª·´¹ıÀ´×ßÒ²¿ÉÒÔßÕ~
+## Pomise è§£å†³å¼‚æ­¥é—®é¢˜
+Promise æ˜¯ä¸ªå®¹å™¨ï¼Œé‡Œé¢å¯ä»¥æ”¾ä¸€äº›å¼‚æ­¥çš„è¯·æ±‚ï¼Œè¯·æ±‚æˆåŠŸäº†èµ°æˆåŠŸæ€ï¼Œè¯·æ±‚å¤±è´¥äº†èµ°å¤±è´¥æ€ã€‚å½“ç„¶ï¼Œä½ è¦åè¿‡æ¥èµ°ä¹Ÿå¯ä»¥å“’~
 
 ```javascript
 const PENDING = 'pending';
@@ -217,7 +218,7 @@ class Promise {
         this.value;
         this.reason;
 
-        // ÓÃÀ´´æ´¢ ¶©ÔÄµÄÄÚÈİµÄ
+        // ç”¨æ¥å­˜å‚¨ è®¢é˜…çš„å†…å®¹çš„
         this.onSuccessCallbacks = [];
         this.onFailCallbacks = [];
 
@@ -249,7 +250,7 @@ class Promise {
         if(this.status === FAIL){
             onRejected(this.reason);
         }
-        // µ±PromiseÀïÃæÓĞÒì²½ÇëÇó¿ØÖÆ×´Ì¬¸Ä±äÊ±£¬»áÏÈ×ßµ½then·½·¨ÀïÃæ
+        // å½“Promiseé‡Œé¢æœ‰å¼‚æ­¥è¯·æ±‚æ§åˆ¶çŠ¶æ€æ”¹å˜æ—¶ï¼Œä¼šå…ˆèµ°åˆ°thenæ–¹æ³•é‡Œé¢
         if(this.status === PENDING) {
             this.onSuccessCallbacks.push(()=>{
                 onFulfilled(this.value);
@@ -263,11 +264,11 @@ class Promise {
 
 ```
 
-Promise ÀïÃæÓĞÒì²½ÇëÇóÊ±ºò£¬»áÏÈ×ßµ½ then·½·¨ÀïÃæÁË¡£´ËÊ±£¬ĞèÒª°Ñ³É¹¦Ì¬»Øµ÷ºÍÊ§°ÜÌ¬»Øµ÷ÏÈ´æ´¢ÆğÀ´£¬µÈµ½Òì²½ÇëÇó»ØÀ´ÒÔºó±ä¸üÁË×´Ì¬£¬ÔÙ´¥·¢Ö´ĞĞ¡£
+Promise é‡Œé¢æœ‰å¼‚æ­¥è¯·æ±‚æ—¶å€™ï¼Œä¼šå…ˆèµ°åˆ° thenæ–¹æ³•é‡Œé¢äº†ã€‚æ­¤æ—¶ï¼Œéœ€è¦æŠŠæˆåŠŸæ€å›è°ƒå’Œå¤±è´¥æ€å›è°ƒå…ˆå­˜å‚¨èµ·æ¥ï¼Œç­‰åˆ°å¼‚æ­¥è¯·æ±‚å›æ¥ä»¥åå˜æ›´äº†çŠ¶æ€ï¼Œå†è§¦å‘æ‰§è¡Œã€‚
 
-## Promise µÄÁ´Ê½
-### then ·½·¨ ·µ»ØÒ»¸öĞÂµÄ Promise
-Promise Ò»ÉúÖ»ÄÜ¸Ä±äÒ»´Î×´Ì¬¡£ÄÇÃ´£¬Promise µÄÁ´Ê½µ÷ÓÃthen·½·¨£¬ËµÃ÷Ã¿´Î¶¼»á·µ»ØÒ»¸ö**ĞÂµÄPromise**¡£
+## Promise çš„é“¾å¼
+### then æ–¹æ³• è¿”å›ä¸€ä¸ªæ–°çš„ Promise
+Promise ä¸€ç”Ÿåªèƒ½æ”¹å˜ä¸€æ¬¡çŠ¶æ€ã€‚é‚£ä¹ˆï¼ŒPromise çš„é“¾å¼è°ƒç”¨thenæ–¹æ³•ï¼Œè¯´æ˜æ¯æ¬¡éƒ½ä¼šè¿”å›ä¸€ä¸ª**æ–°çš„Promise**ã€‚
 
 ```javascript
 const SUCCESS = 'fulfilled';
@@ -276,16 +277,16 @@ const PENDING = 'pending';
 
 class Promise {
     constructor(executor) {
-       // ... executor ´úÂë
+       // ... executor ä»£ç 
     }
     then(onFulfilled, onRejected) {
         let promise2;
 
         promise2 = new Promise((resolve, reject)=>{
             if (this.status === SUCCESS) {
-                try { // ÓÃ try catch ²¶»ñÍ¬²½µÄ±¨´í
-                    // ³É¹¦Ì¬µÄ»Øµ÷µÄ·µ»ØÖµ x
-                    // ¡¾ÎÊÌâ¡¿ Èç¹û x ÊÇÒ»¸öpromsie£¬ÄÇÃ´ĞèÒªÈ¡µÃxÖ´ĞĞºóµÄ½á¹û
+                try { // ç”¨ try catch æ•è·åŒæ­¥çš„æŠ¥é”™
+                    // æˆåŠŸæ€çš„å›è°ƒçš„è¿”å›å€¼ x
+                    // ã€é—®é¢˜ã€‘ å¦‚æœ x æ˜¯ä¸€ä¸ªpromsieï¼Œé‚£ä¹ˆéœ€è¦å–å¾—xæ‰§è¡Œåçš„ç»“æœ
                     let x = onFulfilled(this.value);
                     resolve(x);
 
@@ -326,8 +327,8 @@ class Promise {
 }
 ```
 
-### ½âÎö x
-ÈçºÎÅĞ¶Ï x ÊÇPromsie£¬»¹ÊÇÒ»¸öÆÕÍ¨Öµ£¿¡¾²Î¿¼¹æ·¶ https://promisesaplus.com "Promsie A+"  2.2.7¡¿
+### è§£æ x
+å¦‚ä½•åˆ¤æ–­ x æ˜¯Promsieï¼Œè¿˜æ˜¯ä¸€ä¸ªæ™®é€šå€¼ï¼Ÿã€å‚è€ƒè§„èŒƒ https://promisesaplus.com "Promsie A+"  2.2.7ã€‘
 
 ```javascript
 const SUCCESS = 'fulfilled';
@@ -335,18 +336,18 @@ const FAIL = 'rejected';
 const PENDING = 'pending';
 
 function resolvePromise(promise2, x, resolve, reject) {
-    // ËÀÑ­»·ÁË£¬Èİ´í
+    // æ­»å¾ªç¯äº†ï¼Œå®¹é”™
     if(promise2 === x) {
         return reject('TypeError: Chaining cycle detected for promise~~~~');
     }
-    // ÅĞ¶Ï x ÀàĞÍ
+    // åˆ¤æ–­ x ç±»å‹
     if(typeof x === 'function' || (typeof x === 'object' && x != null)) {
-        // Õâ¸ö²ÅÓĞ¿ÉÄÜÊÇ promsie
+        // è¿™ä¸ªæ‰æœ‰å¯èƒ½æ˜¯ promsie
         try {
             let then = x.then;
             if(typeof then === 'function') {
-                // ´ËÊ±£¬ÈÏÎª¾ÍÊÇ¸öpromise
-                // Èç¹ûpromsieÊÇ³É¹¦µÄ£¬ÄÇÃ´½á¹ûÏòÏÂ´«µİ£¬Èç¹ûÊ§°ÜÁË¾Í´«µ½ÏÂÒ»¸öÊ§°ÜÀïÃæÈ¥
+                // æ­¤æ—¶ï¼Œè®¤ä¸ºå°±æ˜¯ä¸ªpromise
+                // å¦‚æœpromsieæ˜¯æˆåŠŸçš„ï¼Œé‚£ä¹ˆç»“æœå‘ä¸‹ä¼ é€’ï¼Œå¦‚æœå¤±è´¥äº†å°±ä¼ åˆ°ä¸‹ä¸€ä¸ªå¤±è´¥é‡Œé¢å»
                 then.call(x, y=>{
                     resolvePromise(promise2, y, resolve, reject);
                 }, r => {
@@ -359,21 +360,21 @@ function resolvePromise(promise2, x, resolve, reject) {
             reject(e);
         }
     } else {
-        // x ¿Ï¶¨²»ÊÇÒ»¸öpromsie
+        // x è‚¯å®šä¸æ˜¯ä¸€ä¸ªpromsie
         resolve(x);
     }
 }
 
 class Promise {
     constructor(executor) {
-        // ... executor ´úÂë
+        // ... executor ä»£ç 
     }
     then(onFulfilled, onRejected) {
         let promise2;
 
         promise2 = new Promise((resolve, reject) => {
             if (this.status === SUCCESS) {
-                // ÓÃ¶¨Ê±Æ÷Ä£Äâ´ËÊ±promise2ÒÑ¾­ÄÜ»ñÈ¡µ½ÁË
+                // ç”¨å®šæ—¶å™¨æ¨¡æ‹Ÿæ­¤æ—¶promise2å·²ç»èƒ½è·å–åˆ°äº†
                 setTimeout(() => {
                     try {
                         let x = onFulfilled(this.value);
@@ -383,7 +384,7 @@ class Promise {
                     }
                 });
             }
-            // ÆäËûÇé¿öÍ¬Àí£¬ÏÈÒÔÒ»¸öÎªÀıËµÃ÷
+            // å…¶ä»–æƒ…å†µåŒç†ï¼Œå…ˆä»¥ä¸€ä¸ªä¸ºä¾‹è¯´æ˜
         });
         
         return promise2;
@@ -391,8 +392,8 @@ class Promise {
 }
 ```
 
-### ÑÏ½÷¶È
-**Promsie ¸øÄãµÄ³ĞÅµ£¬Ò»¾äÇé»°£ºÒ»¸ö Promise Ò»ÉúÖ»¸Ä±äÒ»´Î×´Ì¬**
+### ä¸¥è°¨åº¦
+**Promsie ç»™ä½ çš„æ‰¿è¯ºï¼Œä¸€å¥æƒ…è¯ï¼šä¸€ä¸ª Promise ä¸€ç”Ÿåªæ”¹å˜ä¸€æ¬¡çŠ¶æ€**
 
 ```javascript
 const SUCCESS = 'fulfilled';
@@ -400,7 +401,7 @@ const FAIL = 'rejected';
 const PENDING = 'pending';
 
 function resolvePromise(promise2, x, resolve, reject) {
-    // ËÀÑ­»·ÁË£¬Èİ´í
+    // æ­»å¾ªç¯äº†ï¼Œå®¹é”™
     if(promise2 === x) {
         return reject('TypeError: Chaining cycle detected for promise~~~~');
     }
@@ -433,14 +434,14 @@ function resolvePromise(promise2, x, resolve, reject) {
 
 class Promise {
     constructor(executor) {
-        // .... executor µÄ´úÂë
+        // .... executor çš„ä»£ç 
     }
     then(onFulfilled, onRejected) {
         let promise2;
 
         promise2 = new Promise((resolve, reject) => {
             if (this.status === SUCCESS) {
-                // ÓÃ¶¨Ê±Æ÷Ä£Äâ´ËÊ±promise2ÒÑ¾­ÄÜ»ñÈ¡µ½ÁË
+                // ç”¨å®šæ—¶å™¨æ¨¡æ‹Ÿæ­¤æ—¶promise2å·²ç»èƒ½è·å–åˆ°äº†
                 setTimeout(() => {
                     try {
                         let x = onFulfilled(this.value);
@@ -450,7 +451,7 @@ class Promise {
                     }
                 });
             }
-            // ÆäËûÇé¿öÍ¬Àí£¬ÏÈÒÔÒ»¸öÎªÀıËµÃ÷
+            // å…¶ä»–æƒ…å†µåŒç†ï¼Œå…ˆä»¥ä¸€ä¸ªä¸ºä¾‹è¯´æ˜
         });
 
         return promsie2;
@@ -458,7 +459,7 @@ class Promise {
 }
 ```
 
-### ÖµµÄ´©Í¸
+### å€¼çš„ç©¿é€
 
 ```javascript
 let p = new Promise((resolve, reject)=>{
@@ -468,48 +469,48 @@ p.then().then().then(data => {
     console.log(data);
 });
 ```
-Öµ¿ÉÒÔ´«¹ıÈ¥
+å€¼å¯ä»¥ä¼ è¿‡å»
 ```javascript
 const SUCCESS = 'fulfilled';
 const FAIL = 'rejected';
 const PENDING = 'pending';
 
 function resolvePromise(promise2, x, resolve, reject) {
-    // ... ÅĞ¶Ï x µÄÖµ
+    // ... åˆ¤æ–­ x çš„å€¼
 }
 
 class Promise {
     constructor(executor) {
-        // ... executor ´úÂë
+        // ... executor ä»£ç 
     }
     then(onFulfilled, onRejected) {
-        // Öµ´©Í¸
+        // å€¼ç©¿é€
         onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : val => val;
         onRejected = typeof onRejected === 'function' ? onRejected : err => {throw err};
-        // ... promsie2 µÄÅĞ¶Ï
+        // ... promsie2 çš„åˆ¤æ–­
     }
 }
 
 ```
 
-## ²âÊÔ
+## æµ‹è¯•
 
-- ²âÊÔÕâ¸ö¿âÊÇ·ñ·ûºÏÎÒÃÇµÄpromise A+ ¹æ·¶
-- `promises-aplus-tests` ÓÃÀ´²âÊÔµ±Ç°µÄ¿âÊÇ·ñ·ûºÏ¹æ·¶
+- æµ‹è¯•è¿™ä¸ªåº“æ˜¯å¦ç¬¦åˆæˆ‘ä»¬çš„promise A+ è§„èŒƒ
+- `promises-aplus-tests` ç”¨æ¥æµ‹è¯•å½“å‰çš„åº“æ˜¯å¦ç¬¦åˆè§„èŒƒ
 - `npm i promises-aplus-tests -g`
-- `promises-aplus-tests ÎÄ¼şÃû`
+- `promises-aplus-tests æ–‡ä»¶å`
 
 
-## Promise A+ ¹æ·¶
-Promsie ÊÇÒ»¸ö¹¹Ôìº¯Êı£¬ÊÇ¸öÀà¡£Ä¬ÈÏ¸ß°æ±¾ä¯ÀÀÆ÷£¬node¶¼×Ô´øÁË¡£²»ÓÃ¿¼ÂÇ¼æÈİĞÔ£¬·ÅĞÄ´óµ¨µÄÊ¹ÓÃ°É£¡Èç¹ûÕæ²»¼æÈİ£¬ÄÇ¾ÍÓÃes6-promsie°ü×Ô¼ºÊÇÒ»Ì×°É~
+## Promise A+ è§„èŒƒ
+Promsie æ˜¯ä¸€ä¸ªæ„é€ å‡½æ•°ï¼Œæ˜¯ä¸ªç±»ã€‚é»˜è®¤é«˜ç‰ˆæœ¬æµè§ˆå™¨ï¼Œnodeéƒ½è‡ªå¸¦äº†ã€‚ä¸ç”¨è€ƒè™‘å…¼å®¹æ€§ï¼Œæ”¾å¿ƒå¤§èƒ†çš„ä½¿ç”¨å§ï¼å¦‚æœçœŸä¸å…¼å®¹ï¼Œé‚£å°±ç”¨es6-promsieåŒ…è‡ªå·±æ˜¯ä¸€å¥—å§~
 
 Promsie A+
 
 https://promisesaplus.com
 
 
-## Èİ´í
-ÉÏÃæµÄÄÚÈİ£¬»¹ĞèÒªÒ»²¿·ÖÈİ´í¡£¾ÍÊÇµ±executor ÀïÃæµÄÓĞÒ»¸öpromsieµÄÊ±ºò£¬Ö´ĞĞµÄ½á¹û¡£
+## å®¹é”™
+ä¸Šé¢çš„å†…å®¹ï¼Œè¿˜éœ€è¦ä¸€éƒ¨åˆ†å®¹é”™ã€‚å°±æ˜¯å½“executor é‡Œé¢çš„æœ‰ä¸€ä¸ªpromsieçš„æ—¶å€™ï¼Œæ‰§è¡Œçš„ç»“æœã€‚
 
 ```javascript
 let Promise = require('./promise.js');
@@ -520,11 +521,11 @@ let p = new Promise((resolve, reject)=>{
 });
 p.then(value => console.log(1, value), reason => console.log(2, reason));
 
-// Êä³ö£º
+// è¾“å‡ºï¼š
 // 2 404
 ```
 
-ÔÚÍ¬²½Ö´ĞĞÊ±£¬resolve µÄvalueÊÇÒ»¸öPromsie£¬ÄÇÃ´ĞèÒªµÈËüµÄ½á¹û¡£
+åœ¨åŒæ­¥æ‰§è¡Œæ—¶ï¼Œresolve çš„valueæ˜¯ä¸€ä¸ªPromsieï¼Œé‚£ä¹ˆéœ€è¦ç­‰å®ƒçš„ç»“æœã€‚
 
 ```javascript
 const SUCCESS = 'fulfilled';
@@ -532,7 +533,7 @@ const FAIL = 'rejected';
 const PENDING = 'pending';
 
 function resolvePromise(promise2, x, resolve, reject) {
-    // ... Ğ£Ñéx
+    // ... æ ¡éªŒx
 }
 
 class Promise {
@@ -553,7 +554,7 @@ class Promise {
         // ... code
     }
     then(onFulfilled, onRejected) {
-        // ... then ·½·¨
+        // ... then æ–¹æ³•
     }
 }
 
