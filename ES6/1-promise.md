@@ -57,7 +57,7 @@ p.then((value)=>{
 
 console.log('纸短情长');
 ```
-
+![](https://github.com/jingzhaoxia/frontEndCode/blob/master/zhaoxiajingjing/20190928/tu/1.gif)
 
 ## 链式调用
 
@@ -81,7 +81,7 @@ p.then((value) => {
 });
 console.log('~~~纸短情长~~~');
 ```
-
+![](https://github.com/jingzhaoxia/frontEndCode/blob/master/zhaoxiajingjing/20190928/tu/2.gif)
 
 ### 异步请求
 - name.txt
@@ -106,6 +106,7 @@ p.then((value)=>{
     console.log('失败了', reason);
 });
 ```
+![](https://github.com/jingzhaoxia/frontEndCode/blob/master/zhaoxiajingjing/20190928/tu/3.gif)
 
 ## 复杂的使用 Promise
 
@@ -147,7 +148,7 @@ read('./name.txt')
 });
 ```
 
-
+![](https://github.com/jingzhaoxia/frontEndCode/blob/master/zhaoxiajingjing/20190928/tu/4.gif)
 ** OK，提炼一下重点： **
 1. 有三个状态。怎么变化的？
 1. executor。怎么执行的？
@@ -160,6 +161,8 @@ read('./name.txt')
 - new Promise 会传一个函数作为参数。这个函数有两个参数：resolve 成功 reject 失败，都是用于改变状态的。都在实例上，**一个 Promise 一生只改变一次状态**
 
 - 每个实例上都有一个 then 方法，异步的。对于成功态和失败态的回调：onFulfilled onRejected
+
+![代码1,传送门~](https://github.com/jingzhaoxia/frontEndCode/blob/master/zhaoxiajingjing/20190928/promise-1.js)
 
 ```javascript
 const PENDING = 'pending';
